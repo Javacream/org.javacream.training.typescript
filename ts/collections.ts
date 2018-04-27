@@ -46,6 +46,13 @@ namespace MapReduce{
   }
   let data = new Array<Person>()
   data.push({lastname: "Sawitzki", firstname: "Rainer", height: 183}, {lastname: "Metzger", firstname: "Georg", height: 177}, {lastname: "Schneider", firstname: "Hanna", height: 193})
-  data.filter((element) => {return element.lastname.startsWith("S")}).map((element) => {return element.lastname}).forEach((element, index) => {console.log(index + ":" + element)})
+  data.filter((element) => {return element.lastname.startsWith("M")}).map((element) => {return element.lastname}).forEach((element, index) => {console.log(`${index}:${element}`)})
+}
+
+namespace Scratch {
+  let s:string = "abc"
+  let mapFunc = Array.map
+    
+
 }
 }
