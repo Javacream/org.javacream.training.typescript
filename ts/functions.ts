@@ -11,6 +11,7 @@ let funcWithOptionalParam = (param1: string, param2?: string) => {
   return "param1=" + param1 + ", param2=" + param2
 }
 
+
 console.log(funcWithOptionalParam("Hello", "World"))
 console.log(funcWithOptionalParam("Hello"))
 
@@ -29,4 +30,3 @@ console.log(funcWithRestParam("Hello", "World"))
 console.log(funcWithRestParam("Hello"))
 console.log(funcWithRestParam("Hello", "World", "And", "Jupiter"))
 
-f

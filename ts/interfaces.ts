@@ -3,7 +3,7 @@ namespace interfaces{
     lastname: string
     readonly firstname: string
     address?: string
-    formattedName():string
+    formattedName():string //Methoden in interfaces sind möglich, aber nicht gebräuchlich
   }
 
   function sayHello(person: Person){

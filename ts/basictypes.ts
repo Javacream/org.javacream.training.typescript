@@ -1,7 +1,8 @@
 namespace BasicTypes{
   let name:string = "Hugo"
   let state:boolean = true
-  let number = 42
+  let number:number = 42
+  console.log(number)
 }
 
 namespace Declarations{
