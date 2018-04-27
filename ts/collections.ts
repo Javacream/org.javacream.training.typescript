@@ -49,10 +49,4 @@ namespace MapReduce{
   data.filter((element) => {return element.lastname.startsWith("M")}).map((element) => {return element.lastname}).forEach((element, index) => {console.log(`${index}:${element}`)})
 }
 
-namespace Scratch {
-  let s:string = "abc"
-  let mapFunc = Array.map
-    
-
-}
 }
