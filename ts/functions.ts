@@ -1,3 +1,4 @@
+namespace Functions{
 let func: () => string
 
 func = () => {
@@ -30,3 +31,5 @@ console.log(funcWithRestParam("Hello", "World"))
 console.log(funcWithRestParam("Hello"))
 console.log(funcWithRestParam("Hello", "World", "And", "Jupiter"))
 
+
+}

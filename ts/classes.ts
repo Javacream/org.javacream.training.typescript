@@ -1,4 +1,5 @@
-class SimplePerson{
+namespace Classes{
+  class SimplePerson{
   name:string
   height:number
   constructor(name:string, height:number){
@@ -78,3 +79,4 @@ class PersonWithGetterAndSetterAndStatic {
 }
 
 console.log(PersonWithGetterAndSetterAndStatic.number_of_eyes)
+}

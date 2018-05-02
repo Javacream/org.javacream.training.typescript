@@ -1,4 +1,4 @@
-namespace interfaces{
+namespace Interfaces{
   interface Person{
     lastname: string
     readonly firstname: string
