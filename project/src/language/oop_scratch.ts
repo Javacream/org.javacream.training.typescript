@@ -27,6 +27,9 @@ function oop_scratch(){
     console.log(p1.lastname)
     let p2:Person = new Person("Mustermann", "Hannah")
     console.log(p1.sayHello())
+
+    p1.sayHello = function(){return "42"}
+    console.log(p1.sayHello())
 }
 
 oop_scratch()
