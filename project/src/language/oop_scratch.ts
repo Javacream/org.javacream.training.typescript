@@ -1,11 +1,12 @@
 class Person{
-    constructor(readonly lastname:string, readonly firstname:string){}
+    constructor(readonly lastname:string, readonly firstname:string){
+        Object.preventExtensions(this)
+    }
 
     sayHello():string{
         return "a person, lastname=" + this.lastname
     }
 }
-
 
 function oop_scratch(){
     let p1 = new Person("Sawitzki", "Rainer")
@@ -16,6 +17,7 @@ function oop_scratch(){
 
     p1.sayHello = function(){return "42"}
     console.log(p1.sayHello())
+
 }
 
 oop_scratch()
