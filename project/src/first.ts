@@ -1,3 +1,2 @@
-export let HUGO = "hugo"
-
-console.log("HUHU")
+let message = "Hello"
+console.log(message)
