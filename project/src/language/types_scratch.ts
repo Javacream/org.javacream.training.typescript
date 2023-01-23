@@ -9,7 +9,9 @@ function types_scratch(){
     let result = demo(true)
 
     if (typeof result === "string"){
+        console.log(typeof(result))
         let s = result as string
+        
     }else{
         let n = result as number
     }
