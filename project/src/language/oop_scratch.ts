@@ -1,23 +1,25 @@
-class Person{
-    constructor(readonly lastname:string, readonly firstname:string){
-        Object.preventExtensions(this)
-    }
-
+class PersonClass implements Person{
+    constructor(readonly lastname:string, readonly firstname:string){}
     sayHello():string{
-        return "a person, lastname=" + this.lastname
+        return "Person: lastname=" + this.lastname
     }
 }
 
+interface Person{
+    lastname:string
+    firstname:string
+}
+
 function oop_scratch(){
-    let p1 = new Person("Sawitzki", "Rainer")
-//    p1.lastname = "Meier"
+    let p1:Person = new PersonClass("Sawitzki", "Rainer")
     console.log(p1.lastname)
-    let p2:Person = new Person("Mustermann", "Hannah")
-    console.log(p1.sayHello())
 
-    p1.sayHello = function(){return "42"}
-    console.log(p1.sayHello())
+    let obj:Person = {
+        lastname: "Mustermann",
+        firstname: "Hannah"
+    }
 
+    console.log(obj.lastname)
 }
 
 oop_scratch()
