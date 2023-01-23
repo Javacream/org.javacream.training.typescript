@@ -1,19 +1,18 @@
 function types_scratch(){
-    //Type Inference, preferred
-    let message = "Hello"
-    console.log(message)
-//    message = 42
-//    console.log(message)
+    // function demo(p1:string, p2:number){
+    //     console.log(p1 + " " + p2)
+    // }
 
-    //Type Annotations, hier optional
-    let m2:string = "Hello"
-    console.log(m2)
 
-    let value:any = "Hello" 
-    let m3:string = value //impliziter Cast, "toString"
-    //explicit type cast
-    let m4:string = <string>value
-    let m5:string = value as string
+    let demo:(p1:string, p2:number) => string
+    demo = function(p1:string, p2:number){
+        console.log(p1 + " " + p2)
+        return "OK"
+    }
+
+    demo("A", 42)
+//    demo(47, true)
+//    demo()
 
 }
 
