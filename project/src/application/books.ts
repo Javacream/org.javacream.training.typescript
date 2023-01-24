@@ -6,6 +6,8 @@ interface Book{
     pages:number
     price:number
     available:boolean
+    description?:string
+
 }
 
 class BookClass implements Book{
