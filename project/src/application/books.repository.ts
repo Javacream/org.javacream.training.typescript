@@ -1,11 +1,13 @@
+import { IsbnGenerator } from "./books.isbngenerator";
 import { Book } from "./books.types";
 export type Update = {price?:number, pages?:number, title?:string, available?:boolean}
 export class BooksRepository{
+
+    constructor(readonly isbnGenerator: IsbnGenerator){}
     
     books = new Map<string, Book>()
-    counter = 0
     createBook(title:string, pages=0, price=0, available=false): string{
-        const isbn = "ISBN" + this.counter++
+        const isbn = "ISBN" + this.isbnGenerator.next!()
         const newBook:Book = {isbn, title, pages, price, available}
         this.books.set(isbn, newBook)
         return isbn
@@ -18,6 +20,14 @@ export class BooksRepository{
         }else{
             throw new Error(`${isbn} not found`)
         }
+    }
+    findBooksByTitle(title:string): Array<Book>{
+        const books = Array.from(this.books.values());
+        return books.filter(book => book.title.includes(title))
+    }
+    findBooksByPriceRange(min:number, max:number): Array<Book>{
+        const books = Array.from(this.books.values());
+        return books.filter(book => book.price> min && book.price < max)
     }
 
 
