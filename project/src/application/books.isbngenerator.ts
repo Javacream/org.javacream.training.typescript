@@ -1,5 +1,5 @@
 export interface IsbnGenerator{
-    next?():string
+    next():string
 }
 
 export class RandomIsbnGenerator implements IsbnGenerator{
