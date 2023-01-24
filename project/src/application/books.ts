@@ -1,4 +1,4 @@
-const applicationName = "BOOKS"
+const applicationName = "BOOKS APPLICATION"
 
 function doDemo(){
 
