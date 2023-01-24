@@ -1,4 +1,4 @@
-import {Book, BookClass, GenericBook} from '../src/application/books'
+import {Book, BookClass, GenericBook} from '../src/application/books.types'
 
 describe("books application works", () => {
     it("can create a book", () => {
