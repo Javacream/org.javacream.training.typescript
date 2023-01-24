@@ -8,7 +8,7 @@ export class BooksRepository{
     
     books = new Map<string, Book>()
     createBook(title:string, pages=0, price=0, available=false): string{
-        const isbn = "ISBN" + this.isbnGenerator.next!()
+        const isbn = "ISBN" + this.isbnGenerator.next()
         const newBook:Book = {isbn, title, pages, price, available}
         this.books.set(isbn, newBook)
         return isbn
