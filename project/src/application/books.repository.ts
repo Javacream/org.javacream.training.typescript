@@ -1,9 +1,10 @@
 import { IsbnGenerator } from "./books.isbngenerator";
 import { Book } from "./books.types";
+import { StoreService } from "./storeservice";
 export type Update = {price?:number, pages?:number, title?:string, available?:boolean}
 export class BooksRepository{
 
-    constructor(readonly isbnGenerator: IsbnGenerator){}
+    constructor(readonly isbnGenerator: IsbnGenerator, readonly storeService: StoreService){}
     
     books = new Map<string, Book>()
     createBook(title:string, pages=0, price=0, available=false): string{
@@ -16,18 +17,18 @@ export class BooksRepository{
     findBookByIsbn(isbn:string): Book{
         const result = this.books.get(isbn)
         if (result){
-            return result
+            return this.setStock(result)
         }else{
             throw new Error(`${isbn} not found`)
         }
     }
     findBooksByTitle(title:string): Array<Book>{
         const books = Array.from(this.books.values());
-        return books.filter(book => book.title.includes(title))
+        return books.filter(book => book.title.includes(title)).map(this.setStock)
     }
     findBooksByPriceRange(min:number, max:number): Array<Book>{
         const books = Array.from(this.books.values());
-        return books.filter(book => book.price> min && book.price < max)
+        return books.filter(book => book.price> min && book.price < max).map(this.setStock)
     }
 
 
@@ -48,5 +49,10 @@ export class BooksRepository{
         if (!result){
             throw new Error(`${isbn} not found`)
         }
+    }
+
+    setStock = (book:Book): Book => {
+        book.available = this.storeService.getStock('books', book.isbn) > 0
+        return book
     }
 }
