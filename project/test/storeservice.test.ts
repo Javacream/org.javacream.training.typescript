@@ -1,9 +1,9 @@
-import { StoreService } from "../src/application/storeservice"
+import { SimpleStoreService } from "../src/application/storeservice"
 
 describe("books repository works", () => {
-    let storeService:StoreService
+    let storeService:SimpleStoreService
     beforeEach(() => {
-        storeService = new StoreService()
+        storeService = new SimpleStoreService()
     })
     it("storeService retrieves stock", () => {
         let stock = storeService.getStock("books", 'ISBN0')

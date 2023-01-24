@@ -1,4 +1,4 @@
-export class StoreService{
+export class SimpleStoreService{
     store = new Map<string, Map<string, number>>()
     constructor(){
         const booksMap = new Map<string, number>()

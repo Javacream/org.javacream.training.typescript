@@ -1,10 +1,10 @@
 import {BooksRepository} from '../src/application/books.repository'
 import {SequenceIsbnGenerator} from '../src/application/books.isbngenerator'
-import { StoreService } from '../src/application/storeservice'
+import { SimpleStoreService } from '../src/application/storeservice'
 describe("books repository works", () => {
     let br:BooksRepository
     beforeEach(() => {
-        br = new BooksRepository(new SequenceIsbnGenerator(), new StoreService)
+        br = new BooksRepository(new SequenceIsbnGenerator(), new SimpleStoreService)
     })
     it("creates a isbn", () => {
         let generatedIsbn = br.createBook("TEST")
