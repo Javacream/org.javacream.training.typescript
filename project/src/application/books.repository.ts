@@ -1,15 +1,15 @@
 import { IsbnGenerator } from "./books.isbngenerator";
 import { Book } from "./books.types";
 import { SimpleStoreService } from "./storeservice";
-export type Update = {price?:number, pages?:number, title?:string, available?:boolean}
+export type Update = {price?:number, title?:string, available?:boolean}
 export class BooksRepository{
 
     constructor(readonly isbnGenerator: IsbnGenerator, readonly storeService: SimpleStoreService){}
     
     books = new Map<string, Book>()
-    createBook = (title:string, pages=0, price=0, available=false): string => {
+    createBook = (title:string, price=0, available=false): string => {
         const isbn = "ISBN" + this.isbnGenerator.next()
-        const newBook:Book = {isbn, title, pages, price, available}
+        const newBook:Book = {isbn, title, price, available}
         this.books.set(isbn, newBook)
         return isbn
     }

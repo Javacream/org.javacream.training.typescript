@@ -1,7 +1,6 @@
 interface Book{
     isbn:string
     title:string
-    pages:number
     price:number
     available:boolean
     description?:string
@@ -17,18 +16,18 @@ interface SpecialistBook extends Book{
 }
 
 class BookClass implements Book{
-    constructor(readonly isbn:string, readonly title:string, public pages:number, public price:number, public available:boolean){}
+    constructor(readonly isbn:string, readonly title:string, public price:number, public available:boolean){}
 }
 
 class SchoolBookClass extends BookClass implements SchoolBook{
-    constructor(isbn:string, title:string, pages:number, price:number, available:boolean, readonly subject:string, readonly year:number){
-        super(isbn, title, pages, price, available)
+    constructor(isbn:string, title:string, price:number, available:boolean, readonly subject:string, readonly year:number){
+        super(isbn, title, price, available)
     }
 
 }
 class SpecialistBookClass extends BookClass implements SpecialistBook{
-    constructor(isbn:string, title:string, pages:number, price:number, available:boolean, readonly topic:string){
-        super(isbn, title, pages, price, available)
+    constructor(isbn:string, title:string, price:number, available:boolean, readonly topic:string){
+        super(isbn, title, price, available)
     }
 
 }
