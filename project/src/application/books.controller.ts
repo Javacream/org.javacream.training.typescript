@@ -27,11 +27,23 @@ export class BooksController{
 
     updateBook = async (isbn:string, update:BookUpdate): Promise<void> =>{
         const book = await this.findBookByIsbn(isbn)
-        //TODO
+        if (update.available){
+            book.available = update.available
+        }
+        if (update.title){
+            book.title = update.title
+        }
+        if (update.price){
+            book.price = update.price
+        }
+        let response = await fetch(`${this.baseUrl}/${isbn}`, {method: "PUT", body: JSON.stringify(book), headers: {"Content-Type": "application/json"}})
+        if (response.status != 200){
+            throw new Error("update book failed" + response.status)
+        }
+
     }
     deleteBookByIsbn= async (isbn:string): Promise<void>  =>{
         let response = await fetch(`${this.baseUrl}/${isbn}`, {method: 'DELETE'})
-        console.log(response.status)
         if (response.status != 200){
             throw new Error("delete book failed" + response.status)
         }

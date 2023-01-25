@@ -17,7 +17,7 @@ describe("books repository works", () => {
         let book = await booksController.findBookByIsbn(generatedIsbn)
         expect(book.title).toBe(TITLE)
     })
-    xit("updates a book", async () => {
+    it("updates a book", async () => {
         const TITLE = "TEST"
         const NEW_PRICE = 6.66
         let generatedIsbn = await booksController.createBook(TITLE)
