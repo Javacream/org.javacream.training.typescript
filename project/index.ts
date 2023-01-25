@@ -7,6 +7,8 @@ async function main(){
     let idList = ids.split(",")
     let stockList = new Map<string, number>()
 
+    //idList.forEach(async (id) => await storeController.getStock("sawitzki", id)) //mit async functionen nicht nutzbar
+
     for (let id of idList){
         let stock = await storeController.getStock("sawitzki", id)
         stockList.set(id, stock)
