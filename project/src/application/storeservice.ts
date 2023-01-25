@@ -22,3 +22,19 @@ export class SimpleStoreService{
         return 0
     }
 }
+
+
+export class StoreController{
+    baseUrl:string = "http://h2908727.stratoserver.net:8080/api/store"
+    async getStock(category:string, id:string){
+        let response = await fetch(`${this.baseUrl}/${category}/${id}`)
+        let data = await response.text()
+        return parseInt(data) 
+    }
+
+    async setStock(category:string, id:string, stock:number){
+        let response = await fetch(`${this.baseUrl}/${category}/${id}`, {method: 'POST', headers: {"stock": ""+stock}})
+        let data = await response.text()
+        return parseInt(data) 
+    }
+}
