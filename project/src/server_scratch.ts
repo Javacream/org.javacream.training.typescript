@@ -1,7 +1,7 @@
-function getData(url:string){
-    let responsePromise = fetch(url)
-    let dataPromise = responsePromise.then((response) => response.json() )
-    return dataPromise
+async function getData(url:string){
+    let response = await fetch(url)
+    let data = await response.json()
+    return data
 
 }
 
