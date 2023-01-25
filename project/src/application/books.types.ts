@@ -38,9 +38,10 @@ interface GenericBook extends Record<string, any>{
     title:string
 }
 
+type BookUpdate = {price?:number, title?:string, available?:boolean}
 
 export{
-    Book, SchoolBook, SpecialistBook, GenericBook, BookClass
+    Book, SchoolBook, SpecialistBook, GenericBook, BookClass, BookUpdate
 }
 
 

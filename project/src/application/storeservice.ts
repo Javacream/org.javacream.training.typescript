@@ -34,7 +34,5 @@ export class StoreController{
 
     async setStock(category:string, id:string, stock:number){
         let response = await fetch(`${this.baseUrl}/${category}/${id}`, {method: 'POST', headers: {"stock": ""+stock}})
-        let data = await response.text()
-        return parseInt(data) 
     }
 }

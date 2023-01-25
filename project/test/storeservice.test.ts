@@ -18,10 +18,10 @@ describe("storeservice works", () => {
 describe("storecontroller works", () => {
     let storeController = new StoreController()
     it("stores a new entry", async () => {
-        await storeController.setStock("sawitzki", "0815", 42)
+        await storeController.setStock("sawitzki", "4711", 42)
     })
     it("retrieves stock", async () => {
-        let stock = await storeController.getStock("sawitzki", "0815")
+        let stock = await storeController.getStock("sawitzki", "4711")
         expect(stock).toBe(42)
     })
 })

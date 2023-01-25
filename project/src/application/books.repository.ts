@@ -1,7 +1,6 @@
 import { IsbnGenerator } from "./books.isbngenerator";
-import { Book } from "./books.types";
+import { Book, BookUpdate } from "./books.types";
 import { SimpleStoreService } from "./storeservice";
-export type Update = {price?:number, title?:string, available?:boolean}
 export class BooksRepository{
 
     constructor(readonly isbnGenerator: IsbnGenerator, readonly storeService: SimpleStoreService){}
@@ -32,7 +31,7 @@ export class BooksRepository{
     }
 
 
-    updateBook = (isbn:string, update:Update): void =>{
+    updateBook = (isbn:string, update:BookUpdate): void =>{
         const book = this.findBookByIsbn(isbn)
         if (update.available){
             book.available = update.available
